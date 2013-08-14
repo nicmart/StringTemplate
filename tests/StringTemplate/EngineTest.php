@@ -16,8 +16,25 @@ use StringTemplate\Engine;
  */
 class EngineTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp()
+    public function testRenderWithScalarReplacement()
     {
+        $engine = new Engine('<', '>');
+        $this->assertEquals('my string and <your> string', $engine->render('my <> and <your> <>', 'string'));
+    }
 
+    public function testRender()
+    {
+        $engine = new Engine();
+        $this->assertEquals(
+            'Oh! The cat jumped onto the table',
+            $engine->render(
+                'Oh! {subj.det} {subj.np} {verb} onto {w.where.det} {w.where.np}',
+                array(
+                    'verb' => 'jumped',
+                    'subj' => array('det' => 'The', 'np' => 'cat'),
+                    'w' => array('where' => array('det' => 'the', 'np' => 'table'))
+                )
+            )
+        );
     }
 }
