@@ -103,7 +103,7 @@ foreach ($iterator as $key => $value)
 // 3.2: 3
 
 ```
-## Where it is used
+## Where is it used
 I use StringTemplate in [DomainSpecificQuery](https://github.com/comperio/DomainSpecificQuery) 
 to implement the `Lucene\TemplateExpression` class.
 
