@@ -1,6 +1,6 @@
 # StringTemplate
 
-StringTemplate is a very simple string template engine for php. I've written it to have a thing like sprintf, but with named and nested substutions.
+StringTemplate is a very simple string template engine for php. I've written it to have a thing like sprintf, but with named and nested substitutions.
 
 [![Build Status](https://travis-ci.org/nicmart/StringTemplate.png?branch=master)](https://travis-ci.org/nicmart/StringTemplate)
 
