@@ -26,7 +26,6 @@ the class constructor.
 $engine = new StringTemplate\Engine;
 
 //Scalar value: returns "This is my value: nic"
-
 $engine->render("This is my value: {}", 'nic');
 
 ```
@@ -34,9 +33,7 @@ $engine->render("This is my value: {}", 'nic');
 You can also provide an array value:
 
 ```php
-
 //Array value: returns "My name is Nicolò Martini"
-
 $engine->render("My name is {name} {surname}", ['name' => 'Nicolò', 'surname' => 'Martini']);
 
 ```
@@ -44,7 +41,6 @@ $engine->render("My name is {name} {surname}", ['name' => 'Nicolò', 'surname' =
 Nested array values are allowed too! Example:
 
 ```php
-
 //Nested array value: returns "My name is Nicolò and her name is Gabriella"
 $engine->render(
     "My name is {me.name} and her name is {her.name}",
