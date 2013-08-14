@@ -11,7 +11,7 @@
 namespace StringTemplate\Test;
 
 
-use StringTemplate\NestedKeyArrayIterator;
+use StringTemplate\NestedKeyIterator;
 
 class NestedKeyArrayIteratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,7 +30,7 @@ class NestedKeyArrayIteratorTest extends \PHPUnit_Framework_TestCase
             )
         );
 
-        $iterator = new NestedKeyArrayIterator($ary);
+        $iterator = new NestedKeyIterator(new \RecursiveArrayIterator($ary));
 
         $iterator->next();
         $this->assertSame('1', $iterator->key());

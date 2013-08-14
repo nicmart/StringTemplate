@@ -48,7 +48,7 @@ class Engine
         if (!is_array($value))
             $value = array('' => $value);
 
-        foreach (new NestedKeyArrayIterator($value) as $key => $value) {
+        foreach (new NestedKeyIterator(new \RecursiveArrayIterator($value)) as $key => $value) {
             $result = str_replace($this->left . $key . $this->right, $value, $result);
         }
 
