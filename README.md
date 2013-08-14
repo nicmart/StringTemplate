@@ -19,7 +19,7 @@ Furhtermore, its placeholders can be nested as much as you want (multidimensiona
 ## Usage
 Simply create an instance of `StringTemplate\Engine`, and use its `render` method. 
 
-Placeholders are delimited by defult by `{` and `}`, but you can specify others through
+Placeholders are delimited by default by `{` and `}`, but you can specify others through
 the class constructor.
 
 ```php
