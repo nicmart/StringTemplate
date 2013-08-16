@@ -13,7 +13,7 @@ namespace StringTemplate\Test;
 
 use StringTemplate\NestedKeyIterator;
 
-class NestedKeyArrayIteratorTest extends \PHPUnit_Framework_TestCase
+class NestedKeyIteratorTest extends \PHPUnit_Framework_TestCase
 {
     public function testIteration()
     {
