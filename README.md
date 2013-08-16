@@ -1,4 +1,4 @@
-# StringTemplate
+# StringTemplate [![Build Status](https://travis-ci.org/nicmart/StringTemplate.png?branch=master)](https://travis-ci.org/nicmart/StringTemplate) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/nicmart/StringTemplate/badges/quality-score.png?s=e06818508807c109a8c9354a73fc1a5227426c09)](https://scrutinizer-ci.com/g/nicmart/StringTemplate/)
 
 StringTemplate is a very simple string template engine for php. 
 
@@ -6,8 +6,6 @@ I've written it to have a thing like sprintf, but with named and nested substitu
 
 For installing instructions, go to the end of this README.
 
-[![Build Status](https://travis-ci.org/nicmart/StringTemplate.png?branch=master)](https://travis-ci.org/nicmart/StringTemplate)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/nicmart/StringTemplate/badges/quality-score.png?s=e06818508807c109a8c9354a73fc1a5227426c09)](https://scrutinizer-ci.com/g/nicmart/StringTemplate/)
 
 ## Why
 
