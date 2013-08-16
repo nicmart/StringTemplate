@@ -65,7 +65,7 @@ $engine->render(
 
 ```
 
-## NestedKeyIterator
+## NestedKeyIterator and NestedKeyArray
 Internally the engine iterates through the value array with the `NestedKeyIterator`. `NestedKeyIterator`
 iterates through multi-dimensional arrays giving as key the imploded keys stack.
 
@@ -99,6 +99,42 @@ foreach ($iterator as $key => $value)
 // 3.2: 3
 
 ```
+### NestedKeyArray
+In addition to iteration with nested keys, the library offers a class that allows you to access 
+a multidimensional array with flatten nested keys as the ones seen above. It's called `NestedKeyArray`.
+
+Example:
+```php
+use StringTemplate\NestedKeyArray;
+
+$ary = [
+    '1' => 'foo',
+    '2' => [
+        '1' => 'bar',
+        '2' => ['1' => 'fog']
+    ],
+    '3' => [1, 2, 3]
+];
+
+$nestedKeyArray = new NestedKeyArray($ary);
+
+echo $nestedKeyArray['2.1']; //Prints 'bar'
+$nestedKeyArray['2.1'] = 'new bar';
+unset($nestedKeyArray['2.2']);
+isset($nestedKeyArray['2.1']); //Returns true
+
+foreach ($iterator as $key => $value)
+    echo "$key: $value\n";
+
+// Prints
+// 1: foo
+// 2.1: new bar
+// 3.0: 1
+// 3.1: 2
+// 3.2: 3
+
+```
+
 ## Where is it used
 I use StringTemplate in [DomainSpecificQuery](https://github.com/comperio/DomainSpecificQuery) 
 to implement the `Lucene\TemplateExpression` class.
