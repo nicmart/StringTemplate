@@ -21,9 +21,9 @@ class SprintfEngineTest extends \PHPUnit_Framework_TestCase
     {
         $engine = new SprintfEngine();
         $this->assertEquals(
-            sprintf('Oh! %s %s jumped onto %e table', 'The', 'cat', sprintf("%e", 1)),
+            sprintf('Oh! %s %s jumped onto %s (%e) table', 'The', 'cat', 1, 1),
             $engine->render(
-                'Oh! {subj.det%s} {subj.np%s} {verb} onto {w.where.number%e} {w.where.np}',
+                'Oh! {subj.det%s} {subj.np%s} {verb} onto {w.where.number%s} ({w.where.number%e}) {w.where.np}',
                 array(
                     'verb' => 'jumped',
                     'subj' => array('det' => 'The', 'np' => 'cat'),
