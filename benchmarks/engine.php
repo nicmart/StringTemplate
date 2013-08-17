@@ -14,7 +14,7 @@
 include '../vendor/autoload.php';
 
 $engine = new \StringTemplate\Engine;
-$template = "These are {foo} and {bar}. Those are {goo.b} and {goo.v}";
+$template = "These are {foo} and {bar}. Those are {goo.b} and {goo.v} %";
 $vars = array(
     'foo' => 'bar',
     'baz' => 'friend',
@@ -54,12 +54,19 @@ $strReplace = function () use ($template, $varsSearch, $varsReplace)
 
 function benchmark($f, $title = '', $iterations = 100000)
 {
+    static $firstTime = 0;
     echo '<br><b>', $title, '</b><br>';
     $start = microtime(true);
     for ($i = 0; $i < $iterations; $i++)
         $f();
     $time = microtime(true) - $start;
     echo 'Time: ', $time, '<br>';
+    if ($firstTime) {
+        echo 'Factor: ', sprintf("%d.3&times;", $time / $firstTime);
+        echo ', Reverse Factor: ', sprintf("%d.3&times;", $firstTime / $time), '<br>';
+    } else {
+        $firstTime = $time;
+    }
     echo 'Average: ', $time / $iterations, '<br>';
     echo 'MemoryPeak: ', memory_get_peak_usage(), ' (meaningful only if you run one benchmark at time)';
 }
