@@ -25,6 +25,11 @@ $replace = function () use ($engine, $template, $vars)
     $engine->render($template, $vars);
 };
 
+$engineSprintf = new \StringTemplate\SprintfEngine;
+$replaceSprintf = function () use ($engineSprintf, $template, $vars) {
+    $engineSprintf->render($template, $vars);
+};
+
 $templateSprintf = "These are %s and %s. Those are %s and %s";
 $varsSprintf = array(
     'bar', 'friend', 'b', 'd'
@@ -60,5 +65,6 @@ function benchmark($f, $title = '', $iterations = 100000)
 }
 
 benchmark($replace, 'Engine benchmark');
+benchmark($replaceSprintf, 'Engine Sprintf benchmark');
 benchmark($sprintf, 'Sprintf benchmark');
 benchmark($strReplace, 'StrReplace benchmark');

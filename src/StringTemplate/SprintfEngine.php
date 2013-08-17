@@ -14,7 +14,7 @@ namespace StringTemplate;
  * Class Engine
  *
  * Replace placeholder in strings with nested (array) values, allowing an optional
- * sprintf-like parameter after the placeholder name
+ * sprintf-like parameter after the placeholder name.
  *
  * Example:
  * <code>
@@ -22,13 +22,18 @@ namespace StringTemplate;
  * //Prints "This is b and these are d and 1.000000E+0"
  * </code>
  */
-class SprintfEngine extends AbstractEngine
+class SprintfEngine extends Engine
 {
     /**
      * {@inheritdoc}
      */
     public function render($template, $value)
     {
+        //Performance: if there are no '%' fallback to Engine
+        if (strstr($template, '%') == false) {
+            return parent::render($template, $value);
+        }
+
         $result = $template;
         if (!is_array($value))
             $value = array('' => $value);
