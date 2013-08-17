@@ -64,6 +64,25 @@ $engine->render(
 
 ```
 
+### SprintfEngine
+You can use a more powerful version of the engine if you want to specify [convertion specifications](http://php.net/manual/en/function.sprintf.php) for placeholders. The conversion syntax is identical to `sprintf` one, you need only to specify the optional parameter after the placeholder name.
+
+Example:
+ ```php
+$engine = new StringTemplate\SprintfEngine;
+
+//Returns I have 1.2 (1.230000E+0) apples
+$engine->render(
+    "I have {num%d.1} ({num%E.1}) {fruit}.",
+    [
+        'num' => 1.23,
+        'fruit' => 'apples'
+    ]);
+
+```
+Keep in mind that power comes at a cost: `SprintfEngine` is 3 times slower than `Engine` 
+(although if there are no '%' in the template string then performance is almost the same).
+
 ## NestedKeyIterator and NestedKeyArray
 Internally the engine iterates through the value array with the `NestedKeyIterator`. `NestedKeyIterator`
 iterates through multi-dimensional arrays giving as key the imploded keys stack.
