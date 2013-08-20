@@ -47,7 +47,16 @@ $engine->render(
         'me' => ['name' => 'Nicolò'],
         'her' => ['name' => 'Gabriella']
     ]);
+```
 
+Object values will be converted to strings:
+```php
+class Foo { function __toString() { return 'foo'; }
+
+//Returns "foo: bar"
+$engine->render(
+    "{val}: bar",
+    ['val' => new Foo]);
 ```
 
 You can change the delimiters as you want:
@@ -63,6 +72,7 @@ $engine->render(
     ]);
 
 ```
+
 
 ### SprintfEngine
 You can use a more powerful version of the engine if you want to specify [convertion specifications](http://php.net/manual/en/function.sprintf.php) for placeholders. The conversion syntax is identical to `sprintf` one, you need only to specify the optional parameter after the placeholder name.
@@ -88,11 +98,12 @@ Internally the engine iterates through the value array with the `NestedKeyIterat
 iterates through multi-dimensional arrays giving as key the imploded keys stack.
 
 It can be useful even if you don't need the Engine. Keep in mind that it is an `RecursiveIteratorIterator`,
-and so you have to pass  a `RecursiveIterator` to its constructor.
+and so you have to pass  a `RecursiveIterator` to its constructor (or, better, a `StringTemplate\RecursiveArrayOnlyIterator` if you do not want to iterate through objects.
 
 Example:
 ```php
-use StringTemplate\NestedKeyIterator
+use StringTemplate\NestedKeyIterator;
+use StringTemplate\RecursiveArrayOnlyIterator;
 
 $ary = [
     '1' => 'foo',
