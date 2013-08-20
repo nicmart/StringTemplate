@@ -6,7 +6,7 @@ php:
 
 before_script:
   - wget http://getcomposer.org/composer.phar
-  - php composer.phar install --dev --no-
+  - php composer.phar install --dev --no-interaction
 
 after_script:
   - php vendor/bin/coveralls -v
