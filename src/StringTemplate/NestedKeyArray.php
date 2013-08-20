@@ -33,7 +33,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
      */
     public function getIterator()
     {
-        return new NestedKeyIterator(new \RecursiveArrayIterator($this->array));
+        return new NestedKeyIterator(new RecursiveArrayOnlyIterator($this->array));
     }
 
     /**

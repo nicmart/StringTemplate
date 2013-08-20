@@ -12,6 +12,7 @@ namespace StringTemplate\Test;
 
 
 use StringTemplate\NestedKeyIterator;
+use StringTemplate\RecursiveArrayOnlyIterator;
 
 class NestedKeyIteratorTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,7 +31,7 @@ class NestedKeyIteratorTest extends \PHPUnit_Framework_TestCase
             )
         );
 
-        $iterator = new NestedKeyIterator(new \RecursiveArrayIterator($ary));
+        $iterator = new NestedKeyIterator(new RecursiveArrayOnlyIterator($ary));
 
         $iterator->next();
         $this->assertSame('1', $iterator->key());
@@ -55,6 +56,26 @@ class NestedKeyIteratorTest extends \PHPUnit_Framework_TestCase
         $iterator->next();
         $this->assertSame('third.c.miao', $iterator->key());
         $this->assertSame('bau', $iterator->current());
+    }
+
+    public function testIterationWhenValueAreNotScalars()
+    {
+        $ary = array(
+             'a' => array(
+                 'b' => 'a',
+                 'c' => $c = new \stdClass(),
+             )
+        );
+
+        $iterator = new NestedKeyIterator(new RecursiveArrayOnlyIterator($ary));
+
+        $iterator->next();
+        $this->assertSame('a.b', $iterator->key());
+        $this->assertSame('a', $iterator->current());
+
+        $iterator->next();
+        $this->assertSame('a.c', $iterator->key());
+        $this->assertSame($c, $iterator->current());
     }
 }
  
