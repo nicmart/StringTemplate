@@ -38,7 +38,7 @@ class SprintfEngine extends Engine
         if (!is_array($value))
             $value = array('' => $value);
 
-        foreach (new NestedKeyIterator(new \RecursiveArrayIterator($value)) as $key => $value) {
+        foreach (new NestedKeyIterator(new RecursiveArrayOnlyIterator($value)) as $key => $value) {
             $pattern = "/" . $this->left . $key . "(%[^" . $this->right . "])?" . $this->right . "/";
             preg_match_all($pattern, $template, $matches);
             $substs = array_map(function ($match) use ($value) {

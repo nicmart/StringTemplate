@@ -37,4 +37,18 @@ class EngineTest extends \PHPUnit_Framework_TestCase
             )
         );
     }
+
+    public function testRenderWithObjectValues()
+    {
+        $engine = new Engine;
+        $this->assertEquals('foo', $engine->render('{value}', array('value' => new ObjectMock())));
+    }
+}
+
+class ObjectMock
+{
+   function __toString()
+   {
+       return 'foo';
+   }
 }

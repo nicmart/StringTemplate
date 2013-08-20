@@ -32,4 +32,24 @@ class SprintfEngineTest extends \PHPUnit_Framework_TestCase
             )
         );
     }
+
+    public function testRenderWithObjectValues()
+    {
+        $engine = new SprintfEngine();
+        $this->assertEquals(
+            'foo',
+            $engine->render(
+                '{val%s}',
+                array('val' => new ObjectMockForSprintf())
+            )
+        );
+    }
+}
+
+class ObjectMockForSprintf
+{
+   function __toString()
+   {
+       return 'foo';
+   }
 }
