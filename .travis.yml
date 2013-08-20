@@ -5,8 +5,11 @@ php:
   - 5.5
 
 before_script:
-  - wget http://getcomposer.org/composer.phar
-  - php composer.phar install --dev --no-interaction
+  - composer self-update
+  - composer update --prefer-source --dev
+
+script:
+  - phpunit --coverage-clover ./build/logs/clover.xml
 
 after_script:
   - php vendor/bin/coveralls -v
