@@ -13,7 +13,7 @@ I have often struggled against sprintf's lack of a named placeholders feature,
 so I have decided to write once and for all a simple component that allows you to render a template string in which
 placeholders are named.
 
-Furhtermore, its placeholders can be nested as much as you want (multidimensional arrays allowed).
+Furthermore, its placeholders can be nested as much as you want (multidimensional arrays allowed).
 
 ## Usage
 Simply create an instance of `StringTemplate\Engine`, and use its `render` method. 
