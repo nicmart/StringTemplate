@@ -10,9 +10,6 @@
 
 namespace StringTemplate;
 
-
-use Traversable;
-
 class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
 {
     private $array;
@@ -25,7 +22,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
     public function __construct(array &$array, $keySeparator = '.')
     {
         $this->array = $array;
-        $this->keySeparator = '.';
+        $this->keySeparator = $keySeparator;
     }
 
     /**
@@ -125,10 +122,10 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
 
         if (!$offsets) {
             unset($target[$currKey]);
-        }  elseif (isset($target[$currKey])) {
+        } elseif (isset($target[$currKey])) {
             $this->unsetNestedOffset($target[$currKey], $offsets);
         }
 
         return $this;
     }
-} 
+}
