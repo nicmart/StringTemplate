@@ -98,7 +98,7 @@ Internally the engine iterates through the value array with the `NestedKeyIterat
 iterates through multi-dimensional arrays giving as key the imploded keys stack.
 
 It can be useful even if you don't need the Engine. Keep in mind that it is an `RecursiveIteratorIterator`,
-and so you have to pass  a `RecursiveIterator` to its constructor (or, better, a `StringTemplate\RecursiveArrayOnlyIterator` if you do not want to iterate through objects.
+and so you have to pass  a `RecursiveIterator` to its constructor (or, better, a `StringTemplate\RecursiveArrayOnlyIterator` if you do not want to iterate through objects).
 
 Example:
 ```php
@@ -177,7 +177,7 @@ Just create a composer.json file for your project:
 ```JSON
 {
     "require": {
-        "nicmart/string-template": "dev-master"
+        "nicmart/string-template": "~0.1"
     }
 }
 ```
