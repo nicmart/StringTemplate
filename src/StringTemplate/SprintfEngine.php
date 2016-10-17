@@ -39,7 +39,7 @@ class SprintfEngine extends Engine
             $value = array('' => $value);
 
         foreach (new NestedKeyIterator(new RecursiveArrayOnlyIterator($value)) as $key => $value) {
-            $pattern = "/" . $this->left . $key . "(%[^" . $this->right . "])?" . $this->right . "/";
+            $pattern = "/" . $this->left . $key . "(%[^" . $this->right . "]+)?" . $this->right . "/";
             preg_match_all($pattern, $template, $matches);
             $substs = array_map(function ($match) use ($value) {
                 return $match !== '' ? sprintf($match, $value) : $value;

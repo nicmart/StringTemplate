@@ -82,13 +82,14 @@ Example:
  ```php
 $engine = new StringTemplate\SprintfEngine;
 
-//Returns I have 1.2 (1.230000E+0) apples
-$engine->render(
-    "I have {num%d.1} ({num%E.1}) {fruit}.",
-    [
-        'num' => 1.23,
-        'fruit' => 'apples'
-    ]);
+//Returns I have 1.2 (1.230000E+0) apples.
+    $engine->render(
+        "I have {num%.1f} ({num%.6E}) {fruit}.",
+        [
+            'num' => 1.23,
+            'fruit' => 'apples'
+        ]
+    )
 
 ```
 Keep in mind that power comes at a cost: `SprintfEngine` is 3 times slower than `Engine` 

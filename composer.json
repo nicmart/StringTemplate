@@ -14,7 +14,8 @@
         "php": ">=5.3.3"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "dev-master"
+        "satooshi/php-coveralls": "dev-master",
+        "phpunit/phpunit": "^4.8"
     },
     "autoload": {
         "psr-0": {
@@ -23,4 +24,3 @@
         }
     }
 }
-
