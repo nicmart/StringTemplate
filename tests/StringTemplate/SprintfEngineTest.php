@@ -44,12 +44,27 @@ class SprintfEngineTest extends \PHPUnit_Framework_TestCase
             )
         );
     }
+
+    public function testRenderWithAdditionalFormatting()
+    {
+        $engine = new SprintfEngine();
+        $this->assertEquals(
+            'I have 1.2 (1.230000E+0) apples.',
+            $engine->render(
+                "I have {num%.1f} ({num%.6E}) {fruit}.",
+                array(
+                    'num' => 1.23,
+                    'fruit' => 'apples'
+                )
+            )
+        );
+    }
 }
 
 class ObjectMockForSprintf
 {
-   function __toString()
-   {
-       return 'foo';
-   }
+    function __toString()
+    {
+        return 'foo';
+    }
 }
