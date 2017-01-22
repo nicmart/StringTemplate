@@ -21,7 +21,7 @@ namespace StringTemplate;
  * //Prints "This is b and these are d and e"
  * </code>
  */
-abstract class AbstractEngine
+abstract class AbstractEngine implements EngineInterface
 {
     protected $left;
     protected $right;
