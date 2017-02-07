@@ -46,6 +46,8 @@ class SprintfEngine extends Engine
             }, $matches[1]);
             $result = str_replace($matches[0], $substs, $result);
         }
-        return $result;
+        // cleanup not used placeholders
+        $pattern = "/" . $this->left . "([^" . $this->right . "]+)?" . $this->right . "/";
+        return preg_replace($pattern, '', $result);
     }
 }
