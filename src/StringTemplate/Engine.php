@@ -36,6 +36,8 @@ class Engine extends AbstractEngine
             $result = str_replace($this->left . $key . $this->right, $value, $result);
         }
 
-        return $result;
+        // cleanup not used placeholders
+        $pattern = "/" . $this->left . "(.+)?" . $this->right . "/";
+        return preg_replace($pattern, '', $result);
     }
 }
