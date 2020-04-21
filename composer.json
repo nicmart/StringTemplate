@@ -11,20 +11,20 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=7.2"
     },
     "require-dev": {
-        "satooshi/php-coveralls": "~1.0",
-        "phpunit/phpunit": "^4.8"
+        "php-coveralls/php-coveralls": "^2",
+        "phpunit/phpunit": "^8 || ^9"
     },
     "autoload": {
-        "psr-0": {
-            "StringTemplate": "src/"
+        "psr-4": {
+            "StringTemplate\\": "src/StringTemplate/"
         }
     },
-    "autoload-dev":{
-        "psr-0": {
-            "StringTemplate\\Test": "tests"
+    "autoload-dev": {
+        "psr-4": {
+            "StringTemplate\\Test\\": "tests/StringTemplate/"
         }
     }
 }

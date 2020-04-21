@@ -11,10 +11,11 @@
 namespace StringTemplate\Test;
 
 
+use PHPUnit\Framework\TestCase;
 use StringTemplate\NestedKeyIterator;
 use StringTemplate\RecursiveArrayOnlyIterator;
 
-class NestedKeyIteratorTest extends \PHPUnit_Framework_TestCase
+class NestedKeyIteratorTest extends TestCase
 {
     public function testIteration()
     {

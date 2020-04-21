@@ -9,12 +9,13 @@
  */
 namespace StringTemplate\Test;
 
+use PHPUnit\Framework\TestCase;
 use StringTemplate\SprintfEngine;
 
 /**
  * Unit tests for class Engine
  */
-class SprintfEngineTest extends \PHPUnit_Framework_TestCase
+class SprintfEngineTest extends TestCase
 {
 
     public function testRender()

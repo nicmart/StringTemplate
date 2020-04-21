@@ -11,9 +11,10 @@
 namespace StringTemplate\Test;
 
 
+use PHPUnit\Framework\TestCase;
 use StringTemplate\RecursiveArrayOnlyIterator;
 
-class RecursiveArrayOnlyIteratorTest extends \PHPUnit_Framework_TestCase
+class RecursiveArrayOnlyIteratorTest extends TestCase
 {
     public function testHasChildrenWithScalarValue()
     {

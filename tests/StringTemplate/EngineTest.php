@@ -9,12 +9,13 @@
  */
 namespace StringTemplate\Test;
 
+use PHPUnit\Framework\TestCase;
 use StringTemplate\Engine;
 
 /**
  * Unit tests for class Engine
  */
-class EngineTest extends \PHPUnit_Framework_TestCase
+class EngineTest extends TestCase
 {
     public function testRenderWithScalarReplacement()
     {
