@@ -1,9 +1,8 @@
 language: php
 php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
+  - 7.2
+  - 7.3
+  - 7.4
   - hhvm
 
 matrix:
@@ -11,11 +10,10 @@ matrix:
     - php: hhvm
 
 before_script:
-  - composer self-update
-  - composer update --prefer-source --dev
+  - composer update --prefer-source
 
 script:
-  - phpunit --coverage-clover ./build/logs/clover.xml
+  - vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
 
 after_script:
-  - php vendor/bin/coveralls -v
+  - vendor/bin/php-coveralls -v

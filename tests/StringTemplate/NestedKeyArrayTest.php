@@ -11,9 +11,10 @@
 namespace StringTemplate\Test;
 
 
+use PHPUnit\Framework\TestCase;
 use StringTemplate\NestedKeyArray;
 
-class NestedKeyArrayTest extends \PHPUnit_Framework_TestCase
+class NestedKeyArrayTest extends TestCase
 {
     /**
      * @var array
@@ -25,7 +26,7 @@ class NestedKeyArrayTest extends \PHPUnit_Framework_TestCase
      */
     protected $nestedKeyAry;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->ary = array(
             'a' => 'b',
