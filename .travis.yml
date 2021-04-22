@@ -10,8 +10,9 @@ matrix:
   allow_failures:
     - php: hhvm
 
+# We don't have a composer.lock. Rather, we use the most recent (released) versions of our dependencies.
 before_script:
-  - composer update --prefer-source
+  - composer update --prefer-dist
 
 script:
   - XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-clover ./build/logs/clover.xml
