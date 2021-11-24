@@ -22,6 +22,7 @@ class RecursiveArrayOnlyIterator extends \RecursiveArrayIterator
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function hasChildren()
     {
         return is_array($this->current()) || $this->current() instanceof \Traversable;
