@@ -57,7 +57,7 @@ class NestedKeyIterator extends \RecursiveIteratorIterator
     /**
      * {@inheritdoc}
      */
-    public function callGetChildren()
+    public function callGetChildren(): ?\RecursiveIterator
     {
         $this->stack[] = parent::key();
         return parent::callGetChildren();
@@ -66,7 +66,7 @@ class NestedKeyIterator extends \RecursiveIteratorIterator
     /**
      * {@inheritdoc}
      */
-    public function endChildren()
+    public function endChildren(): void
     {
         parent::endChildren();
         array_pop($this->stack);
@@ -75,7 +75,7 @@ class NestedKeyIterator extends \RecursiveIteratorIterator
     /**
      * {@inheritdoc}
      */
-    public function key()
+    public function key(): mixed
     {
         $keys = $this->stack;
         $keys[] = parent::key();
