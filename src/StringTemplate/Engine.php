@@ -33,7 +33,10 @@ class Engine extends AbstractEngine
             $value = array('' => $value);
 
         foreach (new NestedKeyIterator(new RecursiveArrayOnlyIterator($value)) as $key => $value) {
-            $result = str_replace($this->left . $key . $this->right, $value??'', $result);
+            // only replace if $value is number, string or bool
+            if (is_scalar($value)) {
+                $result = str_replace($this->left . $key . $this->right, $value??'', $result);
+            }
         }
 
         return $result;
