@@ -28,7 +28,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
     /**
      * {@inheritdoc}
      */
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new NestedKeyIterator(new RecursiveArrayOnlyIterator($this->array));
     }
@@ -36,7 +36,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
     /**
      * {@inheritdoc}
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         $keys = explode($this->keySeparator, $offset);
         $ary = &$this->array;
@@ -53,6 +53,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         $keys = explode($this->keySeparator, $offset);
@@ -68,7 +69,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
     /**
      * {@inheritdoc}
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->setNestedOffset($this->array, explode($this->keySeparator, $offset), $value);
     }
@@ -76,7 +77,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
     /**
      * {@inheritdoc}
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         $this->unsetNestedOffset($this->array, explode($this->keySeparator, $offset));
     }
