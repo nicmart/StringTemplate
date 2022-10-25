@@ -18,7 +18,6 @@
   },
   "scripts": {
     "test": "vendor/bin/phpunit"
-    ]
   },
   "autoload": {
     "psr-4": {
