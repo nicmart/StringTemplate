@@ -18,7 +18,10 @@
     "phpunit/phpunit": "^8 || ^9"
   },
   "scripts": {
-    "test": "vendor/bin/phpunit"
+    "test": [
+      "@putenv XDEBUG_MODE=coverage",
+      "vendor/bin/phpunit --coverage-clover build/logs/clover.xml"
+    ]
   },
   "autoload": {
     "psr-4": {
