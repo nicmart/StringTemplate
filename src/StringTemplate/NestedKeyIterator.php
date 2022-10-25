@@ -75,6 +75,7 @@ class NestedKeyIterator extends \RecursiveIteratorIterator
     /**
      * {@inheritdoc}
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         $keys = $this->stack;
