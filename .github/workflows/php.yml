@@ -26,8 +26,8 @@ jobs:
       with:
         php-version: ${{ matrix.php-versions }}
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
+    - name: Validate composer.json
+      run: composer validate --no-check-lock --strict
 
     - name: Cache Composer packages
       id: composer-cache
@@ -40,9 +40,6 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run test suite
       run: composer run-script test
