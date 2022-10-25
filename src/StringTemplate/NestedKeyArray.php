@@ -1,6 +1,7 @@
 <?php
+
 /**
- * This file is part of library-template
+ * This file is part of StringTemplate.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -103,7 +104,7 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
 
         if (!$offsets) {
             $target[$currKey] = $value;
-        }  else {
+        } else {
             if (!isset($target[$currKey]))
                 $target[$currKey] = array();
             $this->setNestedOffset($target[$currKey], $offsets, $value);

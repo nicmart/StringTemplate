@@ -1,6 +1,7 @@
 <?php
+
 /**
- * This file is part of library-template
+ * This file is part of StringTemplate.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,17 +11,19 @@
 
 namespace StringTemplate\Test;
 
-
 use PHPUnit\Framework\TestCase;
 use StringTemplate\NestedKeyIterator;
 use StringTemplate\RecursiveArrayOnlyIterator;
 
+/**
+ * Unit test for NestedKeyIterator
+ */
 class NestedKeyIteratorTest extends TestCase
 {
     public function testIteration()
     {
         $ary = array(
-             1 => 'a',
+            1 => 'a',
             '2' => 'b',
             'third' => array(
                 'a',
@@ -62,10 +65,10 @@ class NestedKeyIteratorTest extends TestCase
     public function testIterationWhenValueAreNotScalars()
     {
         $ary = array(
-             'a' => array(
-                 'b' => 'a',
-                 'c' => $c = new \stdClass(),
-             )
+            'a' => array(
+                'b' => 'a',
+                'c' => $c = new \stdClass(),
+            )
         );
 
         $iterator = new NestedKeyIterator(new RecursiveArrayOnlyIterator($ary));
@@ -79,4 +82,3 @@ class NestedKeyIteratorTest extends TestCase
         $this->assertSame($c, $iterator->current());
     }
 }
- 

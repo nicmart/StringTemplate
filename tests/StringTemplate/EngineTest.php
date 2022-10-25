@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace StringTemplate\Test;
 
 use PHPUnit\Framework\TestCase;
@@ -48,8 +49,8 @@ class EngineTest extends TestCase
 
 class ObjectMock
 {
-   function __toString()
-   {
-       return 'foo';
-   }
+    function __toString()
+    {
+        return 'foo';
+    }
 }

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * This file is part of library-template
+ * This file is part of StringTemplate.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,10 +11,12 @@
 
 namespace StringTemplate\Test;
 
-
 use PHPUnit\Framework\TestCase;
 use StringTemplate\NestedKeyArray;
 
+/**
+ * Unit test for NestedKeyArray
+ */
 class NestedKeyArrayTest extends TestCase
 {
     /**
@@ -57,7 +60,8 @@ class NestedKeyArrayTest extends TestCase
                     'g' => 'h'
                 )
             ),
-            $this->nestedKeyAry['c']);
+            $this->nestedKeyAry['c']
+        );
         $this->assertEquals('e', $this->nestedKeyAry['c.d']);
         $this->assertEquals('h', $this->nestedKeyAry['c.f.g']);
         $this->assertEquals('i', $this->nestedKeyAry['2']);
@@ -98,8 +102,7 @@ class NestedKeyArrayTest extends TestCase
     public function testIteration()
     {
         $flattenAry = array();
-        foreach ($this->nestedKeyAry as $key => $value)
-        {
+        foreach ($this->nestedKeyAry as $key => $value) {
             $flattenAry[$key] = $value;
         }
 
@@ -114,4 +117,3 @@ class NestedKeyArrayTest extends TestCase
         );
     }
 }
- 

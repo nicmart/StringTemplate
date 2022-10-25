@@ -11,7 +11,7 @@
 namespace StringTemplate;
 
 /**
- * Class Engine
+ * Class SprintfEngine
  *
  * Replace placeholder in strings with nested (array) values, allowing an optional
  * sprintf-like parameter after the placeholder name.

@@ -1,6 +1,7 @@
 <?php
+
 /**
- * This file is part of library-template
+ * This file is part of StringTemplate.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,10 +11,12 @@
 
 namespace StringTemplate\Test;
 
-
 use PHPUnit\Framework\TestCase;
 use StringTemplate\RecursiveArrayOnlyIterator;
 
+/**
+ * Unit test for RecursiveArrayOnlyIterator
+ */
 class RecursiveArrayOnlyIteratorTest extends TestCase
 {
     public function testHasChildrenWithScalarValue()
@@ -37,4 +40,3 @@ class RecursiveArrayOnlyIteratorTest extends TestCase
         $this->assertFalse($it->hasChildren());
     }
 }
- 

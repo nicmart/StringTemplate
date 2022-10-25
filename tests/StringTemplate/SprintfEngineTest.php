@@ -7,13 +7,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace StringTemplate\Test;
 
 use PHPUnit\Framework\TestCase;
 use StringTemplate\SprintfEngine;
 
 /**
- * Unit tests for class Engine
+ * Unit tests for class SprintfEngine
  */
 class SprintfEngineTest extends TestCase
 {

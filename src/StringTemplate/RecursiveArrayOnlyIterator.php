@@ -1,6 +1,7 @@
 <?php
+
 /**
- * This file is part of library-template
+ * This file is part of StringTemplate.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -26,5 +27,4 @@ class RecursiveArrayOnlyIterator extends \RecursiveArrayIterator
     {
         return is_array($this->current()) || $this->current() instanceof \Traversable;
     }
-
 }
