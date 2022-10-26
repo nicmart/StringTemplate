@@ -1,4 +1,4 @@
-name: test and record coverage
+name: validate and test
 
 on:
   push:
