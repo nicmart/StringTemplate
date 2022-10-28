@@ -1,5 +1,8 @@
 # StringTemplate 
-[![Packagist](https://img.shields.io/packagist/dt/nicmart/string-template.svg)]() [![Packagist](https://img.shields.io/packagist/dm/nicmart/string-template.svg)]() [![Build Status](https://travis-ci.org/nicmart/StringTemplate.png?branch=master)](https://travis-ci.org/nicmart/StringTemplate) [![Coverage Status](https://coveralls.io/repos/nicmart/StringTemplate/badge.png?branch=master)](https://coveralls.io/r/nicmart/StringTemplate?branch=master) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/nicmart/StringTemplate/badges/quality-score.png?s=e06818508807c109a8c9354a73fc1a5227426c09)](https://scrutinizer-ci.com/g/nicmart/StringTemplate/)
+[![Build Status](https://github.com/nicmart/StringTemplate/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/nicmart/StringTemplate/actions/workflows/php.yml)
+[![Packagist](https://img.shields.io/packagist/dt/nicmart/string-template.svg)](https://packagist.org/packages/nicmart/string-template/stats)
+[![Packagist](https://img.shields.io/packagist/dm/nicmart/string-template.svg)](https://packagist.org/packages/nicmart/string-template/stats)
+
 
 StringTemplate is a very simple string template engine for php. 
 
