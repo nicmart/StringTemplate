@@ -14,11 +14,11 @@
 include 'vendor/autoload.php';
 
 $engine = new \StringTemplate\Engine();
-$template = "These are {foo} and {bar}. Those are {goo.b} and {goo.v} %";
+$template = "These are {foo} and {bar}. Those are {goo.b} and {goo.v}  {goo.e%E} %";
 $vars = array(
     'foo' => 'bar',
     'baz' => 'friend',
-    'goo' => array('a' => 'b', 'c' => 'd')
+    'goo' => array('a' => 'b', 'c' => 'd' , 'e' => 12.4 )
 );
 $replace = function () use ($engine, $template, $vars) {
     $engine->render($template, $vars);
@@ -40,10 +40,10 @@ $sprintf = function () use ($template, $varsSprintf) {
 };
 
 $varsSearch = array(
-    'foo', 'baz', 'goo.a', 'goo.c'
+    'foo', 'baz', 'goo.a', 'goo.c' , 'goo.e%E'
 );
 $varsReplace = array(
-    'bar', 'friend', 'b', 'd'
+    'bar', 'friend', 'b', 'd' , '12.4'
 );
 
 $strReplace = function () use ($template, $varsSearch, $varsReplace) {

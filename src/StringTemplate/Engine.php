@@ -125,7 +125,7 @@ class Engine
 
             if (isset($nestedKeyArray[$toEvaluate])) {
                 $result = isset($matches[2]) && $matches[2] ? sprintf($matches[2], $nestedKeyArray[$toEvaluate]) : $nestedKeyArray[$toEvaluate] ;
-                // Handle filters (modifiers) is
+                // Handle filters (modifiers)
                 if (isset($matches[3]) && isset($matches[4])) {
                     $filter = $matches[4];
                     if (isset($this->allowedFilters[$filter]) &&  is_callable($this->allowedFilters[$filter])) {
