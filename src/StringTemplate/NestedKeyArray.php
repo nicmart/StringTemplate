@@ -11,6 +11,8 @@
 
 namespace StringTemplate;
 
+use Closure;
+
 class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
 {
     private $array;
@@ -43,8 +45,9 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
         $ary = &$this->array;
 
         foreach ($keys as $key) {
-            if (!isset($ary[$key]))
+            if (!isset($ary[$key])) {
                 return false;
+            }
             $ary = &$ary[$key];
         }
 
@@ -62,6 +65,11 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
 
         foreach ($keys as $key) {
             $result = &$result[$key];
+        }
+
+        // If is callable
+        if ($result instanceof Closure) {
+            return $result($this);
         }
 
         return $result;
@@ -105,8 +113,9 @@ class NestedKeyArray implements \ArrayAccess, \IteratorAggregate
         if (!$offsets) {
             $target[$currKey] = $value;
         } else {
-            if (!isset($target[$currKey]))
+            if (!isset($target[$currKey])) {
                 $target[$currKey] = array();
+            }
             $this->setNestedOffset($target[$currKey], $offsets, $value);
         }
 

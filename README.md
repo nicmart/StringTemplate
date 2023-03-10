@@ -78,7 +78,116 @@ $engine->render(
 ```
 
 
-### SprintfEngine
+You can use a simple condition:
+```php
+$engine = new StringTemplate\Engine();
+
+//Returns Oh! You
+$engine->render(
+    'Oh! {#name}{test}{/name}',
+    [
+        'name' => true,
+        'test' => 'You'
+    ]);
+
+```
+
+
+You can use a simple condition with else:
+```php
+$engine = new StringTemplate\Engine();
+
+//Returns Oh! My
+$engine->render(
+    'Oh! {#name}{test}{#else}My{/name}',
+    [
+        'name' => false,
+        'test' => 'You'
+    ]);
+
+```
+
+
+
+You can use a simple filters ( lower|upper|esc_html ):
+```php
+$engine = new StringTemplate\Engine();
+
+//Returns Oh! JOHN
+$engine->render(
+    'Oh! {name|upper}',
+    [
+        'name' => 'John'
+    ]);
+
+```
+
+You can add you own filters:
+```php
+$engine = new StringTemplate\Engine('{','}', [
+    'ucfist' => 'ucfirst',
+    'esc_html' =>  function($string){ return htmlentities($string, ENT_NOQUOTES); } // override a default filter
+]);
+
+//Returns Oh! &lt;script&gt;John&lt;/script&gt;'
+$engine->render(
+    'Oh! {name|esc_html}',
+    [
+        'name' => '<script>John</script>'
+    ]);
+
+```
+
+
+You can use closures a values
+```php
+$engine = new StringTemplate\Engine();
+
+//Returns Oh! John
+$engine->render(
+    'Oh! {name|upper}',
+    [
+        'name' => function() {
+            return 'John';
+        }
+    ]);
+
+```
+
+You can use closures can use the variables
+```php
+$engine = new StringTemplate\Engine();
+
+//Returns Oh! John Doe
+$engine->render(
+    'Oh! {name}',
+    [
+        'first' => 'John',
+        'last' => 'Doe',
+        'name' => function($values) {
+            return $values['first'].' '.$values['last'];
+        }
+    ]);
+
+```
+
+And lastly, you can use sprintf formats:
+ ```php
+$engine = new StringTemplate\SprintfEngine;
+
+//Returns I have 1.2 (1.230000E+0) apples.
+    $engine->render(
+        "I have {num%.1f} ({num%.6E}) {fruit}.",
+        [
+            'num' => 1.23,
+            'fruit' => 'apples'
+        ]
+    )
+
+```
+
+
+### SprintfEngine (Deprecated)
 You can use a more powerful version of the engine if you want to specify [convertion specifications](http://php.net/manual/en/function.sprintf.php) for placeholders. The conversion syntax is identical to `sprintf` one, you need only to specify the optional parameter after the placeholder name.
 
 Example:

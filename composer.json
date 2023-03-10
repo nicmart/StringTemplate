@@ -8,6 +8,10 @@
     {
       "name": "Nicolò Martini",
       "email": "nicmartnic@gmail.com"
+    }, 
+    {
+      "name": "Rahal Aboulfeth",
+      "email": "rahal.aboulfeth@gmail.com"
     }
   ],
   "require": {
@@ -17,7 +21,8 @@
     "phpunit/phpunit": "^8 || ^9"
   },
   "scripts": {
-    "test": "vendor/bin/phpunit"
+    "test": "vendor/bin/phpunit",
+    "bench": "php benchmarks/engine.php"
   },
   "autoload": {
     "psr-4": {
