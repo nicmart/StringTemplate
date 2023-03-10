@@ -99,10 +99,12 @@ class EngineTest extends TestCase
             )
         );
 
+        // test multiline
         $this->assertEquals(
-            'Oh! Them',
+            "Oh! Them\n",
             $engine->render(
-                'Oh! {#name.value}{test}{#else}{#content}Them{/content}{/name.value}',
+                "Oh! {#name.value}
+                {test}{#else}{#content}Them{/content}\n{/name.value}",
                 array(
                     'name' => ['value' => false] ,
                     'test' => 'Me',

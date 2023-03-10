@@ -62,7 +62,7 @@ class Engine
         return '/'.$this->left.'#([a-zA-Z0-9_.-]*)'.$this->right. // If {#variable}
             '(.+?)'. // Inside condition tag
             '('.$this->left.'#else'.$this->right.'(.+?))?'. // maybe {#else} tag and condition
-            $this->left.'\/\1'.$this->right.'/'; // close if {/variable}
+            $this->left.'\/\1'.$this->right.'/si'; // close if {/variable}
         return $reg;
     }
 
